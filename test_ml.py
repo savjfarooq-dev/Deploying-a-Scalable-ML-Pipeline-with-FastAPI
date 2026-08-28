@@ -5,7 +5,9 @@ from ml.data import apply_label
 from sklearn.ensemble import RandomForestClassifier
 from ml.model import compute_model_metrics, train_model
 
-# Implement first unit test. 
+# Implement first unit test.
+
+
 def test_apply_label():
     """
     Test that apply_label returns the expected salary label.
@@ -30,7 +32,7 @@ def test_train_model():
     assert isinstance(model, RandomForestClassifier)
 
 
-# Implement third unit test. 
+# Implement third unit test.
 def test_compute_model_metrics():
     """
     Test that compute_model_metrics returns expected metric values.
