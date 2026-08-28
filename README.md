@@ -1,29 +1,57 @@
-Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
+# Deploying a Scalable ML Pipeline with FastAPI
 
-# Environment Set up (pip or conda)
-* Option 1: use the supplied file `environment.yml` to create a new environment with conda
-* Option 2: use the supplied file `requirements.txt` to create a new environment with pip
-    
-## Repositories
-* Create a directory for the project and initialize git.
-    * As you work on the code, continually commit changes. Trained models you want to use in production must be committed to GitHub.
-* Connect your local git repo to GitHub.
-* Setup GitHub Actions on your repo. You can use one of the pre-made GitHub Actions if at a minimum it runs pytest and flake8 on push and requires both to pass without error.
-    * Make sure you set up the GitHub Action to have the same version of Python as you used in development.
+This project implements a machine learning pipeline for predicting whether or not an individual's annual income is greater than $50,000 using Census data from 1994. The project includes model training and evaluation, categorical slice performance analysis, unit testing, continuous integration, and a FastAPI
+application for model inference.
 
-# Data
-* Download census.csv and commit it to dvc.
-* This data is messy, try to open it in pandas and see what you get.
-* To clean it, use your favorite text editor to remove all spaces.
+## Project Repository
 
-# Model
-* Using the starter code, write a machine learning model that trains on the clean data and saves the model. Complete any function that has been started.
-* Write unit tests for at least 3 functions in the model code.
-* Write a function that outputs the performance of the model on slices of the data.
-    * Suggestion: for simplicity, the function can just output the performance on slices of just the categorical features.
-* Write a model card using the provided template.
+GitHub Repository:
+https://github.com/savjfarooq-dev/Deploying-a-Scalable-ML-Pipeline-with-FastAPI
 
-# API Creation
-*  Create a RESTful API using FastAPI this must implement:
-    * GET on the root giving a welcome message.
-    * POST that does model inference.
+## Environment Setup
+
+The project was developed using Python 3.10.
+
+A Conda environment can be created  by using the supplied file: environment.yml
+
+## Data
+
+The model uses the Census Income dataset contained in:
+
+data/census.csv
+
+## Unit Tests
+
+The project includes three unit tests covering:
+
+- Label conversion
+- Model training
+- Model metric calculations
+
+## Continuous Integration
+
+GitHub Actions is configured to run automated testing and flake8 checks
+when changes are pushed to the repository.
+
+The project currently passes both the pytest and flake8 checks.
+
+## API
+
+A RESTful API is implemented using FastAPI.
+
+The API provides:
+
+- GET / - Returns a welcome message.
+- POST / data/ - Accepts Census data and returns a model prediction.
+
+## Project Supporting Documents
+
+Required project screenshots are stored in the screenshots/ directory,
+including:
+- continuous_integration.png
+- local_api.png
+- unit_test.png
+
+## Model Card
+
+The model card is contained in `model_card.md` documents the model details, intended use, training and evaluation data, performance metrics, ethical considerations, caveats, and recommendations.
